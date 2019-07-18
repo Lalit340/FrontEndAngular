@@ -14,6 +14,10 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddMemberComponent } from './component/add-member/add-member.component';
 import { ViewListComponent } from './component/view-list/view-list.component';
 import { BackgroundComponent } from './component/background/background.component';
+import { TLDashboardComponent } from './component/tldashboard/tldashboard.component';
+import { DdDashboardComponent } from './component/dd-dashboard/dd-dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -24,10 +28,13 @@ import { BackgroundComponent } from './component/background/background.component
     AddMemberComponent,
     ViewListComponent,
     BackgroundComponent,
+    TLDashboardComponent,
+    DdDashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FlexLayoutModule,
     MatCardModule,
     BrowserAnimationsModule,

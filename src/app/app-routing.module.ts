@@ -5,10 +5,13 @@ import { DashboardComponent } from "./component/dashboard/dashboard.component";
 import { AddMemberComponent } from "./component/add-member/add-member.component";
 import { ViewListComponent } from "./component/view-list/view-list.component";
 import { BackgroundComponent } from "./component/background/background.component";
+import { TLDashboardComponent } from "./component/tldashboard/tldashboard.component";
+import { DdDashboardComponent } from "./component/dd-dashboard/dd-dashboard.component";
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
-    path: 'dashboard', component: DashboardComponent, children: [
+    path: 'pmdashboard', component: DashboardComponent, children: [
       {
         path: '', component: BackgroundComponent
 
@@ -20,6 +23,8 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'tldashboard', component: TLDashboardComponent },
+  { path: 'dddashboard', component: DdDashboardComponent },
 
 ];
 

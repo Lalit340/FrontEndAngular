@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img class="image-size" src="../../../assets/images/indus.png" />
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #snav mode='side'>
+        <mat-nav-list fxLayout="column" fxLayoutGap="20px">
+            <a mat-list-item [routerLink]="['list']">View Member List</a>
+            <a mat-list-item>Add Task in Project</a>
+            <a mat-list-item>View Task</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
