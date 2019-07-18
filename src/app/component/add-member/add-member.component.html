@@ -1,0 +1,63 @@
+<div class="container">
+    <mat-card class="example-card" fxFlex="35%">
+        <mat-card-content>
+            <div fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Enter your FullName" required>
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-content>
+            <div fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Number</mat-label>
+                    <input matInput placeholder="Enter your Mobile Number" required>
+                    <mat-icon matSuffix>stay_primary_portrait</mat-icon>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-content>
+            <div fxLayoutAlign="center">
+                <mat-form-field appearance="outline" class="field-size">
+                    <mat-label>Designation</mat-label>
+                    <select matNativeControl required>
+                        <option value="0">select</option>
+                        <option value="pm">Project Manager</option>
+                        <option value="tl">Team Leader</option> 
+                        <option value="developer">Developer</option>
+                        <option value="designer">Designer</option>
+                    </select>
+
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-content>
+            <div fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput placeholder="Enter your email" required>
+                    <mat-icon matSuffix>mail</mat-icon>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-content>
+            <div fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Enter your Password" [type]="!hide ? 'password' : 'text'" required>
+                    <mat-icon matSuffix (click)="hide=!hide">{{ !hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div fxLayoutAlign="center">
+                <button mat-raised-button color="primary">register</button>
+            </div>
+        </mat-card-actions>
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card>
+</div>

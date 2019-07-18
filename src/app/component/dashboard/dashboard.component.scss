@@ -1,0 +1,36 @@
+
+ .example-icon {
+     font-size: 30px;
+ }
+
+ .example-container {
+    display: flex;
+  }
+
+  .example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+  
+
+  .mat-sidenav-container{
+      flex: 1;
+      height: 100%;
+  }
+
+  .mat-sidenav , .mat-sidenav-container{
+      height: -webkit-fill-available;
+  }
+
+  .mat-sidenav{
+      background-color: antiquewhite;
+      width: 200px;
+      padding: 20px;
+  }
+
+  .image-size {
+      width: 10%;
+      height: 100%;
+      padding-left: 12px;
+  }
