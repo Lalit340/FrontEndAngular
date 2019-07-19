@@ -16,7 +16,7 @@
                         <mat-label>Number</mat-label>
                         <input matInput placeholder="Enter your Mobile Number" formControlName='mobile'
                         pattern="[0-9]{10}"   
-                        [(ngModel)]='member.mobile' required>
+                        [(ngModel)]='member.mobileNo' required>
                         <mat-icon matSuffix>stay_primary_portrait</mat-icon>
                     </mat-form-field>
                 </div>
@@ -41,7 +41,7 @@
                         <mat-label>E-mail</mat-label>
                         <input matInput placeholder="Enter your email" formControlName='email'
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                            [(ngModel)]='member.email' required>
+                            [(ngModel)]='member.mail' required>
                         <mat-icon matSuffix>mail</mat-icon>
                     </mat-form-field>
                 </div>
@@ -58,7 +58,7 @@
 
 
                 <div fxLayoutAlign="center">
-                    <button mat-raised-button color="primary">register</button>
+                    <button mat-raised-button color="primary" (click)='register()'>register</button>
                 </div>
             </form>
         </div>

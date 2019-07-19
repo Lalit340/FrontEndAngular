@@ -22,6 +22,11 @@ export class HttpServerService {
     return this.httpClient.post(this.baseUrl + url, data);
   }
 
+  public putWithToken(url: any, data: any): any {
+    return this.httpClient.put(this.baseUrl + url, data , {
+      headers : new HttpHeaders().set("token", localStorage.getItem('token'))
+    });
+  }
   
   public put(url: any, data: any): any {
     return this.httpClient.put(this.baseUrl + url, data);
@@ -34,6 +39,14 @@ export class HttpServerService {
 
   public delete(url: any): any {
     return this.httpClient.delete(this.baseUrl + url);
+  }
+
+  public uploadImage(url: any, file: File) {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    return this.httpClient.post(this.baseUrl + url, formData, {
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
   }
 
 }

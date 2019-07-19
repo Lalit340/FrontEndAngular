@@ -1,22 +1,3 @@
-<!-- <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
-    <mat-toolbar  class="example-toolbar">
-        <button mat-icon-button (click)="snav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span>Indusnet</span>
-    </mat-toolbar>
-
-    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-        [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"> opened </mat-sidenav>
-        <mat-sidenav-content>
-                <p> hello </p></mat-sidenav-content>
-    </mat-sidenav-container> -->
-<!-- </div> -->
-<!-- <mat-sidenav-container class="example-container" *ngIf="shouldRun">
-        <mat-sidenav mode="side" position="start" opened>Sidenav content</mat-sidenav>
-        <mat-sidenav-content>Main content</mat-sidenav-content>
-    </mat-sidenav-container>-->
 <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
@@ -30,9 +11,8 @@
             <a mat-list-item [routerLink]="['add']">Add Member</a>
             <a mat-list-item [routerLink]="['list']">View Member List</a>
             <a mat-list-item>Edit Member Details</a>
-            <a mat-list-item>View Member Details</a>
-            <a mat-list-item>Add Project</a>
-            <a mat-list-item>View Project List</a>
+            <a mat-list-item [routerLink]="['create']">Add Project</a>
+            <a mat-list-item [routerLink]="['view']">View Project List</a>
             <a mat-list-item>Add Task in Project</a>
             <a mat-list-item>View Task</a>
         </mat-nav-list>

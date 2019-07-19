@@ -1,7 +1,7 @@
 export class AddMember {
     name : string;
     desg :string;
-    mobile : string;
-    email : string;
+    mobileNo : string;
+    mail : string;
     password :string;
 }

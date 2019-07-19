@@ -1,4 +1,4 @@
 export class LoginUser {
-    email : string;
+    mail : string;
     password :string;
 }
