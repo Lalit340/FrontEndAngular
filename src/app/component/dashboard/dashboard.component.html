@@ -3,6 +3,9 @@
         <mat-icon>menu</mat-icon>
     </button>
     <img class="image-size" src="../../../assets/images/indus.png" />
+    <button mat-icon-button (click)="logout()">
+        <mat-icon class="icon-flex">power_settings_new</mat-icon>
+    </button>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -10,11 +13,9 @@
         <mat-nav-list fxLayout="column" fxLayoutGap="20px">
             <a mat-list-item [routerLink]="['add']">Add Member</a>
             <a mat-list-item [routerLink]="['list']">View Member List</a>
-            <a mat-list-item>Edit Member Details</a>
             <a mat-list-item [routerLink]="['create']">Add Project</a>
             <a mat-list-item [routerLink]="['view']">View Project List</a>
-            <a mat-list-item>Add Task in Project</a>
-            <a mat-list-item>View Task</a>
+            <a mat-list-item [routerLink]="['task']">View Task</a>
         </mat-nav-list>
     </mat-sidenav>
 

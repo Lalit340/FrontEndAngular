@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   MatIconModule, MatButtonModule, MatInputModule, MatToolbarModule,
-  MatSidenavModule, MatListModule, MatDividerModule , MatExpansionModule
+  MatSidenavModule, MatListModule, MatDividerModule, MatExpansionModule
 } from '@angular/material';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddMemberComponent } from './component/add-member/add-member.component';
@@ -24,6 +24,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { CreateProjectComponent } from './component/create-project/create-project.component';
 import { ViewProjectsComponent } from './component/view-projects/view-projects.component';
+import { ViewTaskComponent } from './component/view-task/view-task.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialodBoxComponent } from './component/dialod-box/dialod-box.component';
+import { DialogBoxAsignProjectsComponent } from './component/dialog-box-asign-projects/dialog-box-asign-projects.component';
+import { DialogEditProjectsComponent } from './component/dialog-edit-projects/dialog-edit-projects.component';
 
 
 
@@ -40,7 +45,12 @@ import { ViewProjectsComponent } from './component/view-projects/view-projects.c
     ResetPasswordComponent,
     CreateProjectComponent,
     ViewProjectsComponent,
+    ViewTaskComponent,
+    DialodBoxComponent,
+    DialogBoxAsignProjectsComponent,
+    DialogEditProjectsComponent,
   ],
+  entryComponents: [DialodBoxComponent ,DialogBoxAsignProjectsComponent ,DialogEditProjectsComponent ,],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -58,7 +68,8 @@ import { ViewProjectsComponent } from './component/view-projects/view-projects.c
     MatListModule,
     MatDividerModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

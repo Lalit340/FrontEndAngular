@@ -1,0 +1,47 @@
+<div class="container">
+    <div>
+        <form [formGroup]='addForm'>
+            <div fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Enter your FullName" formControlName='name' [(ngModel)]='member.name'
+                        required>
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Number</mat-label>
+                    <input matInput placeholder="Enter your Mobile Number" formControlName='mobile' pattern="[0-9]{10}"
+                        [(ngModel)]='member.mobileNo' required>
+                    <mat-icon matSuffix>stay_primary_portrait</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div fxLayoutAlign="center">
+                <mat-form-field appearance="outline" class="field-size">
+                    <mat-label>Designation</mat-label>
+                    <select matNativeControl formControlName='desg' [(ngModel)]='member.desg' required>
+                        <option value="">select</option>
+                        <option value="Project Manager">Project Manager</option>
+                        <option value="Team Leader">Team Leader</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Designer">Designer</option>
+                    </select>
+
+                </mat-form-field>
+            </div>
+
+            <div fxLayoutAlign="center" fxLayoutGap='10%'>
+                <!-- <button mat-raised-button color="primary" (click)='update()'>save</button> -->
+                <mat-dialog-actions>
+                    <button mat-raised-button mat-dialog-close  color="primary" (click)='update()'>save</button>
+                </mat-dialog-actions>
+                <mat-dialog-actions>
+                    <button mat-raised-button mat-dialog-close>goBack</button>
+                </mat-dialog-actions>
+            </div>
+        </form>
+    </div>
+</div>

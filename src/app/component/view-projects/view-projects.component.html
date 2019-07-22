@@ -1,6 +1,6 @@
-<div *ngFor = 'let items of projectList'>
+<!-- <div *ngFor = 'let items of projectList'>
     {{items.name}}
-</div>
+</div> -->
 
 <!-- <table mat-table [projectList]="projectList" class="mat-elevation-z8">
         <ng-container matColumnDef="id">
@@ -8,3 +8,30 @@
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
               </ng-container>
 </table> -->
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let items of projectList">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{items.pid}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{items.name}}
+      </mat-panel-description>
+      <mat-panel-description>
+        {{items.description}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div fxLayout="row"  fxLayoutAlign="space-between center">
+     <button mat-button> <p>
+        Add Task to {{items.name}}
+      </p></button>
+      <button mat-icon-button (click)='editProject(items)'>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button  (click)='deleteProject(items)'>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-expansion-panel>
+
+</mat-accordion>

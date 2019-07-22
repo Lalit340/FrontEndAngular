@@ -10,6 +10,7 @@ import { DdDashboardComponent } from "./component/dd-dashboard/dd-dashboard.comp
 import { ResetPasswordComponent } from "./component/reset-password/reset-password.component";
 import { CreateProjectComponent } from "./component/create-project/create-project.component";
 import { ViewProjectsComponent } from "./component/view-projects/view-projects.component";
+import { ViewTaskComponent } from "./component/view-task/view-task.component";
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
@@ -29,9 +30,21 @@ const routes: Routes = [
       {
         path: 'view', component: ViewProjectsComponent
       },
+      {
+        path: 'task', component: ViewTaskComponent
+      },
     ]
   },
-  { path: 'tldashboard', component: TLDashboardComponent },
+  {
+    path: 'tldashboard', component: TLDashboardComponent, children: [
+      {
+        path: 'list', component: ViewListComponent
+      },
+      {
+        path: 'view', component: ViewProjectsComponent
+      },
+    ]
+  },
   { path: 'dddashboard', component: DdDashboardComponent },
   { path: 'reset', component: ResetPasswordComponent },
 

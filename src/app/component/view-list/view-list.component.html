@@ -20,29 +20,30 @@
     <mat-divider></mat-divider>
   </mat-list> -->
 
-<mat-accordion >
-  <mat-expansion-panel *ngFor = "let items of userInfo">
-    <mat-expansion-panel-header >
-      <mat-panel-title >
-          {{items.id}}
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let items of userInfo">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{items.id}}
       </mat-panel-title>
       <mat-panel-description>
-          {{items.name}}
+        {{items.name}}
       </mat-panel-description>
       <mat-panel-description>
-          {{items.mail}}
+        {{items.mail}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-
-    <p fxLayout="row" >
-      {{items.name}}
-    </p>
-        <button mat-icon-button ><mat-icon>edit</mat-icon></button>
-        <button mat-icon-button ><mat-icon>delete</mat-icon></button>
-
-    <mat-form-field>
-      <input matInput placeholder="Age">
-    </mat-form-field>
+    <div fxLayout="row"  fxLayoutAlign="space-between center">
+     <button mat-button (click)='asignProjects(items)'> <p>
+        Asign Project to {{items.name}}
+      </p></button>
+      <button mat-icon-button (click)='edit(items)'>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)='delete(items)'>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </mat-expansion-panel>
 
 </mat-accordion>

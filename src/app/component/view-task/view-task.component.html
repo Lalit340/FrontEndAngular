@@ -1,0 +1,30 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let items of taskList">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{items.tid}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{items.name}}
+        </mat-panel-description>
+        <mat-panel-description>
+          {{items.description}}
+        </mat-panel-description>
+        <mat-panel-description>
+            {{items.status}}
+          </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row"  fxLayoutAlign="space-between center">
+       <button mat-button disabled> <p>
+          change status
+        </p></button>
+        <button mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-expansion-panel>
+  
+  </mat-accordion>

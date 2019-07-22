@@ -1,0 +1,33 @@
+<div class="container">
+        <div>
+            <form [formGroup]='addForm'>
+                <div fxLayoutAlign="center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Enter project FullName" formControlName='name' [(ngModel)]='project.name'
+                            required>
+                    </mat-form-field>
+                </div>
+    
+                <div fxLayoutAlign="center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <input matInput placeholder="Enter your project description" formControlName='description' pattern="[0-9]{10}"
+                            [(ngModel)]='project.description' required>
+                    </mat-form-field>
+                </div>
+    
+      
+    
+                <div fxLayoutAlign="center" fxLayoutGap='10%'>
+                    <!-- <button mat-raised-button color="primary" (click)='update()'>save</button> -->
+                    <mat-dialog-actions>
+                        <button mat-raised-button  mat-dialog-close  color="primary" (click)='updateProject()'>save</button>
+                    </mat-dialog-actions>
+                    <mat-dialog-actions>
+                        <button mat-raised-button mat-dialog-close>goBack</button>
+                    </mat-dialog-actions>
+                </div>
+            </form>
+        </div>
+    </div>
