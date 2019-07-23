@@ -4,6 +4,7 @@ import { HttpServerService } from "../../service/http-server.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
 import { DialogEditProjectsComponent } from '../dialog-edit-projects/dialog-edit-projects.component';
+import { DialogAsignTaskComponent } from '../dialog-asign-task/dialog-asign-task.component';
 
 @Component({
   selector: 'app-view-projects',
@@ -44,5 +45,11 @@ export class ViewProjectsComponent implements OnInit {
         this.snackBar.open(response.statusMessage , 'close' ,{duration : 3000});
       }
     )
+  }
+
+  asignTask(items){
+    this.dialog.open(DialogAsignTaskComponent ,{
+      data : {items}
+    });
   }
 }

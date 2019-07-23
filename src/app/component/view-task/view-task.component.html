@@ -18,10 +18,10 @@
        <button mat-button disabled> <p>
           change status
         </p></button>
-        <button mat-icon-button>
+        <button mat-icon-button  (click)='editTask(items)'>
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button (click)='deleteTask(items)'>
           <mat-icon>delete</mat-icon>
         </button>
       </div>

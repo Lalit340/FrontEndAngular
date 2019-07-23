@@ -45,6 +45,8 @@ export class ViewListComponent implements OnInit {
       (response: any) => {
         if (response.status == 200) {
           this.snackBar.open(response.statusMessage, "close", { duration: 3000 });
+        }else{
+          this.snackBar.open(response.statusMessage, "close", { duration: 3000 });
         }
       }
     )

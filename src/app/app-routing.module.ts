@@ -11,6 +11,8 @@ import { ResetPasswordComponent } from "./component/reset-password/reset-passwor
 import { CreateProjectComponent } from "./component/create-project/create-project.component";
 import { ViewProjectsComponent } from "./component/view-projects/view-projects.component";
 import { ViewTaskComponent } from "./component/view-task/view-task.component";
+import { CreateTaskComponent } from "./component/create-task/create-task.component";
+import { ViewMemberDetailComponent } from "./component/view-member-detail/view-member-detail.component";
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
@@ -33,15 +35,21 @@ const routes: Routes = [
       {
         path: 'task', component: ViewTaskComponent
       },
+      {
+        path: 'createtask', component: CreateTaskComponent
+      },
     ]
   },
   {
     path: 'tldashboard', component: TLDashboardComponent, children: [
       {
-        path: 'list', component: ViewListComponent
+        path: 'list', component: ViewMemberDetailComponent
       },
       {
         path: 'view', component: ViewProjectsComponent
+      },
+      {
+        path: 'task', component: ViewTaskComponent
       },
     ]
   },

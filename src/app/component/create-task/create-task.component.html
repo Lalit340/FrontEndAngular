@@ -1,0 +1,28 @@
+<div >
+    <mat-card class="example-card" fxLayoutAlign="center"  fxFlex="100%">
+    
+        <div>
+            <form [formGroup]='taskForm' fxLayout="row" fxLayoutGap="8%">
+                <div fxLayoutAlign="center">
+                    <mat-form-field appearance="outline" class="container">
+                        <mat-label>Task Name</mat-label>
+                        <input matInput placeholder="Enter task Name" formControlName="name" 
+                        [(ngModel)]='userTask.name' required>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayoutAlign="center">
+                    <mat-form-field appearance="outline" class="text-container">
+                        <mat-label>Description</mat-label>
+                        <input matInput placeholder="Enter task Description"  formControlName="description"
+                        [(ngModel)]='userTask.description' required> 
+                    </mat-form-field>
+                </div>
+
+                <div fxLayoutAlign="center">
+                    <button mat-flat-button  color="primary" (click)='create()'>create task</button>
+                </div>
+            </form>
+        </div>
+    </mat-card>
+</div>

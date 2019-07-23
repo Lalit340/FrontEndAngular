@@ -1,43 +1,41 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit ,Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { HttpServerService } from "../../service/http-server.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
-
 @Component({
-  selector: 'app-dialog-box-asign-projects',
-  templateUrl: './dialog-box-asign-projects.component.html',
-  styleUrls: ['./dialog-box-asign-projects.component.scss']
+  selector: 'app-dialog-asign-task',
+  templateUrl: './dialog-asign-task.component.html',
+  styleUrls: ['./dialog-asign-task.component.scss']
 })
-export class DialogBoxAsignProjectsComponent implements OnInit {
-  projectList: any;
+export class DialogAsignTaskComponent implements OnInit {
 
+  taskList : any ;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private http: HttpServerService,
     private snackBar: MatSnackBar,
-
-
   ) { }
 
   ngOnInit() {
-    this.getProjects();
+    this.getTask();
   }
-  getProjects() {
-    this.http.get('getallprojs').subscribe(
+
+  getTask() {
+    this.http.get('getalltasks').subscribe(
       (response: any) => {
-        this.projectList = response;
+        this.taskList = response;
       }
     )
   }
 
   addProjects(list) {
-     this.http.put('asignProj?eid='+this.data.items.id+'&pid='+list.pid,null).subscribe(
+     this.http.put('asigntask?pid='+this.data.items.pid+'&tid='+list.tid,null).subscribe(
       (response: any) => {
         if(response.statusCode == 200){
           this.snackBar.open(response.statusMessage , 'close' ,{duration: 2500});
         }else{
-          this.snackBar.open(response.statusMessage , 'close' ,{duration: 2500}); 
+          this.snackBar.open(response.statusMessage , 'close' ,{duration: 3000});
         }
       }
      )

@@ -11,7 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   MatIconModule, MatButtonModule, MatInputModule, MatToolbarModule,
-  MatSidenavModule, MatListModule, MatDividerModule, MatExpansionModule
+  MatSidenavModule, MatListModule, MatDividerModule, MatExpansionModule,
+  MatTableModule
 } from '@angular/material';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddMemberComponent } from './component/add-member/add-member.component';
@@ -29,6 +30,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialodBoxComponent } from './component/dialod-box/dialod-box.component';
 import { DialogBoxAsignProjectsComponent } from './component/dialog-box-asign-projects/dialog-box-asign-projects.component';
 import { DialogEditProjectsComponent } from './component/dialog-edit-projects/dialog-edit-projects.component';
+import { DialogAsignTaskComponent } from './component/dialog-asign-task/dialog-asign-task.component';
+import { DialogEditTaskComponent } from './component/dialog-edit-task/dialog-edit-task.component';
+import { CreateTaskComponent } from './component/create-task/create-task.component';
+import { ViewMemberDetailComponent } from './component/view-member-detail/view-member-detail.component';
 
 
 
@@ -49,8 +54,17 @@ import { DialogEditProjectsComponent } from './component/dialog-edit-projects/di
     DialodBoxComponent,
     DialogBoxAsignProjectsComponent,
     DialogEditProjectsComponent,
+    DialogAsignTaskComponent,
+    DialogEditTaskComponent,
+    CreateTaskComponent,
+    ViewMemberDetailComponent,
   ],
-  entryComponents: [DialodBoxComponent ,DialogBoxAsignProjectsComponent ,DialogEditProjectsComponent ,],
+  entryComponents: [DialodBoxComponent,
+    DialogBoxAsignProjectsComponent,
+    DialogEditProjectsComponent,
+    DialogAsignTaskComponent,
+    DialogEditTaskComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -69,7 +83,8 @@ import { DialogEditProjectsComponent } from './component/dialog-edit-projects/di
     MatDividerModule,
     MatSnackBarModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
