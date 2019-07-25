@@ -13,8 +13,11 @@ import { DialogBoxAsignProjectsComponent } from '../dialog-box-asign-projects/di
   styleUrls: ['./view-list.component.scss']
 })
 export class ViewListComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'name', 'mail', 'mobileNo', 'designation', 'asign project'];
   userInfo: any;
   id: number;
+  projects: any;
+  data: any;
 
   constructor(
     private router: Router,
@@ -35,27 +38,47 @@ export class ViewListComponent implements OnInit {
     )
   }
 
-  edit(items) {
-    this.dialog.open(DialodBoxComponent, {
-      data: { items }
-    });
-  }
-  delete(items) {
-    this.http.delete("deleteUser/" + items.id).subscribe(
+  // edit(items) {
+  //   this.dialog.open(DialodBoxComponent, {
+  //     data: { items }
+  //   });
+  // }
+  // delete(items) {
+  //   this.http.delete("deleteUser/" + items.id).subscribe(
+  //     (response: any) => {
+  //       if (response.status == 200) {
+  //         this.snackBar.open(response.statusMessage, "close", { duration: 3000 });
+  //       }else{
+  //         this.snackBar.open(response.statusMessage, "close", { duration: 3000 });
+  //       }
+  //     }
+  //   )
+  // }
+
+  // asignProjects(items) {
+  //   this.dialog.open(DialogBoxAsignProjectsComponent, {
+  //     data: { items }
+  //   });
+  // }
+
+  getProjects(element) {
+    this.data = element;
+    this.http.get('getAllProjects').subscribe(
       (response: any) => {
-        if (response.status == 200) {
+        this.projects = response;
+      }
+    )
+  }
+
+  onClick(items) {
+    this.http.put('assignProject?pid=' + items.pid + '&eid=' + this.data.id, null).subscribe(
+      (response: any) => {
+        if (response.statusCode == 200) {
           this.snackBar.open(response.statusMessage, "close", { duration: 3000 });
-        }else{
+        } else {
           this.snackBar.open(response.statusMessage, "close", { duration: 3000 });
         }
       }
     )
   }
-
-  asignProjects(items) {
-    this.dialog.open(DialogBoxAsignProjectsComponent, {
-      data: { items }
-    });
-  }
-
 }

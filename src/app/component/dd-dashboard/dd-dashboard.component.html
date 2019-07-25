@@ -11,8 +11,7 @@
 <mat-sidenav-container>
     <mat-sidenav #snav mode='side'>
         <mat-nav-list fxLayout="column" fxLayoutGap="20px">
-            <a mat-list-item>View Assigned Task</a>
-            <a mat-list-item>Change The Task Status</a>
+            <a mat-list-item link [routerLink]="['viewTask']">View Assigned Task</a>
         </mat-nav-list>
     </mat-sidenav>
 

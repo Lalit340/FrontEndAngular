@@ -1,49 +1,45 @@
-<!-- <mat-selection-list #shoes fxLayout="column" class="container">
-    <mat-list-option *ngFor="let shoe of typesOfShoes"  >
-     <p> {{shoe}} </p>
-      <mat-divider></mat-divider>
-    </mat-list-option>
-</mat-selection-list> -->
 
-<!-- <mat-list>
-    <mat-list-item>Item 1</mat-list-item>
-    <mat-icon matListIcon class="icon-container">delete</mat-icon>
-    <mat-icon matListIcon class="icon-container2">edit</mat-icon>
-    <mat-divider></mat-divider>
-    <mat-list-item>Item 2</mat-list-item>
-    <mat-icon matListIcon class="icon-container">delete</mat-icon>
-    <mat-icon matListIcon class="icon-container2">edit</mat-icon>
-    <mat-divider></mat-divider>
-    <mat-list-item>Item 3</mat-list-item>
-    <mat-icon matListIcon class="icon-container">delete</mat-icon>
-    <mat-icon matListIcon class="icon-container2">edit</mat-icon>
-    <mat-divider></mat-divider>
-  </mat-list> -->
 
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let items of userInfo">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{items.id}}
-      </mat-panel-title>
-      <mat-panel-description>
-        {{items.name}}
-      </mat-panel-description>
-      <mat-panel-description>
-        {{items.mail}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div fxLayout="row"  fxLayoutAlign="space-between center">
-     <button mat-button (click)='asignProjects(items)'> <p>
-        Asign Project to {{items.name}}
-      </p></button>
-      <button mat-icon-button (click)='edit(items)'>
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button (click)='delete(items)'>
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
-  </mat-expansion-panel>
 
-</mat-accordion>
+<mat-table [dataSource]="userInfo" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="mail">
+      <mat-header-cell *matHeaderCellDef> mail </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.mail}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="mobileNo">
+      <mat-header-cell *matHeaderCellDef> mobileNo </mat-header-cell>
+      <mat-cell *matCellDef="let element "> {{element.mobileNo}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="designation">
+    <mat-header-cell *matHeaderCellDef> Designation</mat-header-cell>
+    <mat-cell *matCellDef="let element "> {{element.desg}} </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="asign project">
+    <mat-header-cell *matHeaderCellDef>Asign Project</mat-header-cell>
+    <mat-cell *matCellDef="let element "> 
+    <button mat-button color="primary" (click)="getProjects(element)" [matMenuTriggerFor]="menu">
+       asign project
+    </button>  
+    </mat-cell>
+</ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor='let items of projects' (click)='onClick(items)'>{{items.name}}</button>
+  </mat-menu>

@@ -1,0 +1,34 @@
+<mat-table [dataSource]="projectInfo" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.pid}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
+        <mat-cell *matCellDef="let element "> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="asign task">
+        <mat-header-cell *matHeaderCellDef>Asign Task</mat-header-cell>
+        <mat-cell *matCellDef="let element ">
+            <button mat-button color="primary" (click)='send(element)' [matMenuTriggerFor]="menu">
+                asign task
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor='let items of taskList' (click)='onClick(items)'>{{items.name}}</button>
+</mat-menu>

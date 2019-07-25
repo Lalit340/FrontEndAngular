@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', response.token);
           localStorage.setItem('code', response.statusCode);
           this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });
-          this.router.navigate(['/reset']);
+          this.router.navigate(['/dddashboard']);
 
         } else if (response.statusCode == 202) {
           localStorage.setItem('mail', this.user.mail);
@@ -51,14 +51,14 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', response.token);
           localStorage.setItem('code', response.statusCode);
           this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });
-          this.router.navigate(['/reset']);
+          this.router.navigate(['/tldashboard']);
         } else if (response.statusCode == 203) {
           localStorage.setItem('mail', this.user.mail);
           localStorage.setItem('password', this.user.password);
           localStorage.setItem('token', response.token);
           localStorage.setItem('code', response.statusCode);
           this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });
-          this.router.navigate(['/reset']);
+          this.router.navigate(['/pmdashboard']);
         } else {
           console.log(response);
           this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });

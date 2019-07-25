@@ -9,7 +9,7 @@
               </ng-container>
 </table> -->
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let items of projectList">
+  <mat-expansion-panel *ngFor="let items of projectList" (click)="getProjectTask(items)">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{items.pid}}
@@ -21,7 +21,7 @@
         {{items.description}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <div fxLayout="row"  fxLayoutAlign="space-between center">
+    <!-- <div fxLayout="row"  fxLayoutAlign="space-between center">
      <button mat-button (click)='asignTask(items)'> <p>
         Add Task to {{items.name}}
       </p></button>
@@ -31,7 +31,46 @@
       <button mat-icon-button  (click)='deleteProject(items)'>
         <mat-icon>delete</mat-icon>
       </button>
-    </div>
+    </div> -->
+    <mat-table [dataSource]="taskList" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tid}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+      </ng-container>
+  
+ 
+
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+        <mat-cell *matCellDef="let element "> 
+          <button mat-icon-button (click)='editTask(element)'>
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+      <mat-cell *matCellDef="let element "> 
+        <button mat-icon-button  (click)='deleteTask(element)'>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+  </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
   </mat-expansion-panel>
 
 </mat-accordion>

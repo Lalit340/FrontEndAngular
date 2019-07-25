@@ -29,7 +29,7 @@ export class CreateProjectComponent implements OnInit {
 
   create() {
     console.log(this.userProject);
-    this.http.post('create', this.userProject).subscribe(
+    this.http.post('createProject', this.userProject).subscribe(
       (response: any) => {
         if (response.ststusCode == 200) {
           this.snackBar.open(response.statusMessage, 'close', { duration: 3000 })

@@ -1,4 +1,4 @@
-<mat-accordion>
+<!-- <mat-accordion>
     <mat-expansion-panel *ngFor="let items of taskList">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -27,4 +27,56 @@
       </div>
     </mat-expansion-panel>
   
-  </mat-accordion>
+  </mat-accordion> -->
+
+
+<mat-table [dataSource]="taskList" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.tid}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="asignTaskToProj">
+    <mat-header-cell *matHeaderCellDef> AsignTask To Project </mat-header-cell>
+    <mat-cell *matCellDef="let element ">
+      <button mat-button color="primary" (click)='asignTask(element)' [matMenuTriggerFor]="menu">
+       asign to project
+      </button> </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="edit">
+    <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+    <mat-cell *matCellDef="let element ">
+      <button mat-icon-button (click)='editTask(element)'>
+        <mat-icon>edit</mat-icon>
+      </button> </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+    <mat-cell *matCellDef="let element ">
+      <button mat-icon-button (click)='deleteTask(element)'>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor='let items of projects' (click)='onClick(items)'>{{items.name}}</button>
+  </mat-menu>

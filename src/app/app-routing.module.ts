@@ -13,6 +13,9 @@ import { ViewProjectsComponent } from "./component/view-projects/view-projects.c
 import { ViewTaskComponent } from "./component/view-task/view-task.component";
 import { CreateTaskComponent } from "./component/create-task/create-task.component";
 import { ViewMemberDetailComponent } from "./component/view-member-detail/view-member-detail.component";
+import { ViewTlProjectComponent } from "./component/view-tl-project/view-tl-project.component";
+import { AddTaskToProjectComponent } from "./component/add-task-to-project/add-task-to-project.component";
+import { ViewDdTaskComponent } from "./component/view-dd-task/view-dd-task.component";
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
@@ -46,14 +49,20 @@ const routes: Routes = [
         path: 'list', component: ViewMemberDetailComponent
       },
       {
-        path: 'view', component: ViewProjectsComponent
+        path: 'viewProject', component: ViewTlProjectComponent
       },
       {
-        path: 'task', component: ViewTaskComponent
+        path: 'addTask', component: AddTaskToProjectComponent
       },
     ]
   },
-  { path: 'dddashboard', component: DdDashboardComponent },
+  {
+    path: 'dddashboard', component: DdDashboardComponent, children: [
+      {
+        path: 'viewTask', component: ViewDdTaskComponent
+      },
+    ]
+  },
   { path: 'reset', component: ResetPasswordComponent },
 
 ];

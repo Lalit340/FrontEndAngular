@@ -32,7 +32,7 @@ export class DialogEditTaskComponent implements OnInit {
   }
 
   updateTask(){
-    this.http.put('updatetask/'+this.data.items.tid,this.taskList).subscribe(
+    this.http.put('updatetask/'+this.data.element.tid,this.taskList).subscribe(
       (response : any) =>{
         if(response.statusCode == 200){
           this.snackBar.open(response.statusMessage , 'close' ,{duration :3000});

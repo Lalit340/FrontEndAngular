@@ -34,7 +34,10 @@ import { DialogAsignTaskComponent } from './component/dialog-asign-task/dialog-a
 import { DialogEditTaskComponent } from './component/dialog-edit-task/dialog-edit-task.component';
 import { CreateTaskComponent } from './component/create-task/create-task.component';
 import { ViewMemberDetailComponent } from './component/view-member-detail/view-member-detail.component';
-
+import { ViewTlProjectComponent } from './component/view-tl-project/view-tl-project.component';
+import { AddTaskToProjectComponent } from './component/add-task-to-project/add-task-to-project.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { ViewDdTaskComponent } from "./component/view-dd-task/view-dd-task.component";
 
 
 @NgModule({
@@ -58,6 +61,9 @@ import { ViewMemberDetailComponent } from './component/view-member-detail/view-m
     DialogEditTaskComponent,
     CreateTaskComponent,
     ViewMemberDetailComponent,
+    ViewTlProjectComponent,
+    AddTaskToProjectComponent,
+    ViewDdTaskComponent,
   ],
   entryComponents: [DialodBoxComponent,
     DialogBoxAsignProjectsComponent,
@@ -85,6 +91,7 @@ import { ViewMemberDetailComponent } from './component/view-member-detail/view-m
     MatExpansionModule,
     MatDialogModule,
     MatTableModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
