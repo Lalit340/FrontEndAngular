@@ -28,9 +28,7 @@ import { ViewProjectsComponent } from './component/view-projects/view-projects.c
 import { ViewTaskComponent } from './component/view-task/view-task.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialodBoxComponent } from './component/dialod-box/dialod-box.component';
-import { DialogBoxAsignProjectsComponent } from './component/dialog-box-asign-projects/dialog-box-asign-projects.component';
 import { DialogEditProjectsComponent } from './component/dialog-edit-projects/dialog-edit-projects.component';
-import { DialogAsignTaskComponent } from './component/dialog-asign-task/dialog-asign-task.component';
 import { DialogEditTaskComponent } from './component/dialog-edit-task/dialog-edit-task.component';
 import { CreateTaskComponent } from './component/create-task/create-task.component';
 import { ViewMemberDetailComponent } from './component/view-member-detail/view-member-detail.component';
@@ -38,7 +36,6 @@ import { ViewTlProjectComponent } from './component/view-tl-project/view-tl-proj
 import { AddTaskToProjectComponent } from './component/add-task-to-project/add-task-to-project.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ViewDdTaskComponent } from "./component/view-dd-task/view-dd-task.component";
-
 
 @NgModule({
   declarations: [
@@ -55,9 +52,7 @@ import { ViewDdTaskComponent } from "./component/view-dd-task/view-dd-task.compo
     ViewProjectsComponent,
     ViewTaskComponent,
     DialodBoxComponent,
-    DialogBoxAsignProjectsComponent,
     DialogEditProjectsComponent,
-    DialogAsignTaskComponent,
     DialogEditTaskComponent,
     CreateTaskComponent,
     ViewMemberDetailComponent,
@@ -66,9 +61,7 @@ import { ViewDdTaskComponent } from "./component/view-dd-task/view-dd-task.compo
     ViewDdTaskComponent,
   ],
   entryComponents: [DialodBoxComponent,
-    DialogBoxAsignProjectsComponent,
     DialogEditProjectsComponent,
-    DialogAsignTaskComponent,
     DialogEditTaskComponent,
   ],
   imports: [

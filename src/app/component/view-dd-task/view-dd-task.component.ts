@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServerService } from "../../service/http-server.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { DataServiceService } from "../../service/data-service.service";
 
 @Component({
   selector: 'app-view-dd-task',
@@ -10,15 +11,21 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 export class ViewDdTaskComponent implements OnInit {
 
   taskList: any;
-  displayedColumns: string[] = ['id', 'name', 'status','Description', 'change status'];
+  displayedColumns: string[] = ['id', 'name', 'status', 'Description', 'change status'];
   mail: string;
+  message: string;
   constructor(
     private http: HttpServerService,
     private snackBar: MatSnackBar,
+    private data: DataServiceService,
   ) { }
 
   ngOnInit() {
-    this.getTask();
+    this.data.currentMessage.subscribe(
+      message => {
+        this.message = message;
+        this.getTask();
+      })
   }
 
   getTask() {
@@ -30,13 +37,15 @@ export class ViewDdTaskComponent implements OnInit {
     )
   }
 
-  onClick(element){
-    this.http.put('changeStatus?tid='+element.tid ,null).subscribe(
-      (response : any) =>{
-        if(response.statusCode == 200){
-          this.snackBar.open(response.statusMessage , 'close' , {duration :3000});
-        }else{
-          this.snackBar.open(response.statusMessage , 'close' , {duration :3000});
+  onClick(element) {
+    this.http.put('changeStatus?tid=' + element.tid, null).subscribe(
+      (response: any) => {
+        if (response.statusCode == 200) {
+          this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });
+          this.data.changeMessage(response.statusMessage);
+        } else {
+          this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });
+          this.data.changeMessage(response.statusMessage);
         }
       }
     )

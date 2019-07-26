@@ -20,4 +20,8 @@ export class TLDashboardComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  reset(){
+    this.router.navigate(['/reset'])
+  }
+
 }

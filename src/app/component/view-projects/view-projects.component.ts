@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
 import { HttpServerService } from "../../service/http-server.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
-import { DialogEditProjectsComponent } from '../dialog-edit-projects/dialog-edit-projects.component';
-import { DialogAsignTaskComponent } from '../dialog-asign-task/dialog-asign-task.component';
 import { DialogEditTaskComponent } from '../dialog-edit-task/dialog-edit-task.component';
 
 @Component({
@@ -19,7 +16,6 @@ export class ViewProjectsComponent implements OnInit {
    project : any ;
 
   constructor(
-    private router: Router,
     private http: HttpServerService,
     private snackBar: MatSnackBar,
     private dialog : MatDialog,

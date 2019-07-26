@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
 import { HttpServerService } from "../../service/http-server.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
 import { DialogEditTaskComponent } from '../dialog-edit-task/dialog-edit-task.component';
-import { DialogAsignTaskComponent } from '../dialog-asign-task/dialog-asign-task.component';
+import { DataServiceService } from "src/app/service/data-service.service";
 
 @Component({
   selector: 'app-view-task',
@@ -16,16 +15,25 @@ export class ViewTaskComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'Description', 'asignTaskToProj', 'edit', 'delete'];
   projects: any;
   data: any;
+  message : any;
+
 
   constructor(
-    private router: Router,
     private http: HttpServerService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
+    private service : DataServiceService,
+
   ) { }
 
   ngOnInit() {
-    this.getTask();
+    this.service.currentMessage.subscribe(
+      ( message : any)=>{
+          this.message = message;
+          this.getTask();
+       }
+     )
+    
   }
 
   getTask() {
@@ -48,6 +56,7 @@ export class ViewTaskComponent implements OnInit {
     this.http.delete('deletetask/' + element.tid).subscribe(
       (response: any) => {
         this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });
+        this.service.changeMessage(response.statusMessage);
       }
     )
   }
@@ -66,8 +75,10 @@ export class ViewTaskComponent implements OnInit {
       (response : any)=>{
         if(response.statusCode == 200){
           this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });
+          this.service.changeMessage(response.statusMessage);
         }else{
           this.snackBar.open(response.statusMessage, 'close', { duration: 3000 });
+          this.service.changeMessage(response.statusMessage);
         }
       }
     )

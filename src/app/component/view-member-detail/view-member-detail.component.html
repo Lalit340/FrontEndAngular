@@ -1,4 +1,4 @@
-<mat-table [dataSource]="userData" class="mat-elevation-z8">
+<!-- <mat-table [dataSource]="userData" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
         <mat-cell *matCellDef="let element">
@@ -40,12 +40,80 @@
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+</mat-table>-->
 
 <!-- <div *ngFor="let items of userInfo">
  {{items.pid}}
 </div> -->
 
-<mat-menu #menu="matMenu">
+<!-- <mat-menu #menu="matMenu">
     <button mat-menu-item *ngFor='let items of taskList' (click)='onClick(items)'>{{items.name}}</button>
+</mat-menu> -->
+
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let items of projectList" (click)="getUsers(items)">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{items.pid}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{items.name}}
+            </mat-panel-description>
+            <mat-panel-description>
+                {{items.description}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-table [dataSource]="userInfo" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{element.id}}
+
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{element.name}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="mail">
+                <mat-header-cell *matHeaderCellDef> mail </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.mail}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="mobileNo">
+                <mat-header-cell *matHeaderCellDef> mobileNo </mat-header-cell>
+                <mat-cell *matCellDef="let element "> {{element.mobileNo}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="designation">
+                <mat-header-cell *matHeaderCellDef> Designation </mat-header-cell>
+                <mat-cell *matCellDef="let element "> {{element.desg}} </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="asign task">
+                <mat-header-cell *matHeaderCellDef> Asign Task </mat-header-cell>
+                <mat-cell *matCellDef="let element ">
+                    <button mat-button color='primary' (click)='getProjectTask(element)' (click)='onEvent($event)'
+                        [matMenuTriggerFor]="menu">
+                        asign task
+                    </button>
+                </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+
+    </mat-expansion-panel>
+
+</mat-accordion>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor="let items of taskList" (click)='onClick(items)'>{{items.name}}</button>
 </mat-menu>
