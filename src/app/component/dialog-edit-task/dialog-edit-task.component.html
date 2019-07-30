@@ -4,7 +4,7 @@
             <div fxLayoutAlign="center">
                 <mat-form-field appearance="outline">
                     <mat-label>Name</mat-label>
-                    <input matInput placeholder="Enter task FullName" formControlName='name' [(ngModel)]='taskList.name'
+                    <input matInput placeholder="Enter task FullName" value={{data.element.name}} formControlName='name' [(ngModel)]='taskList.name'
                         required>
                 </mat-form-field>
             </div>
@@ -12,7 +12,7 @@
             <div fxLayoutAlign="center">
                 <mat-form-field appearance="outline">
                     <mat-label>Description</mat-label>
-                    <input matInput placeholder="Enter your task description" formControlName='description' 
+                    <input matInput placeholder="Enter your task description" value={{data.element.description}} formControlName='description' 
                         [(ngModel)]='taskList.description' required>
                 </mat-form-field>
             </div>

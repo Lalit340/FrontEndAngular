@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
 import { Task } from "../../model/task";
 import { HttpServerService } from "../../service/http-server.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -16,11 +15,10 @@ export class DialogEditTaskComponent implements OnInit {
   taskList: Task = new Task();
   addForm: FormGroup;
   message: any;
-
+ // name : new FormControl(this.)
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private router: Router,
     private http: HttpServerService,
     private snackBar: MatSnackBar,
     private service: DataServiceService,
@@ -31,6 +29,9 @@ export class DialogEditTaskComponent implements OnInit {
     this.service.currentMessage.subscribe(
       (message: any) => {
         this.message = message;
+        this.taskList.name = this.data.element.name;
+        this.taskList.description = this.data.element.description;
+
         this.addForm = this.formBuilder.group(
           {
             'name': new FormControl(this.taskList.name, [Validators.required]),
